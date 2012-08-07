@@ -1,0 +1,76 @@
+table{
+    padding:0px;
+    margin:0px;
+}
+table td{
+    padding:0px;
+    margin:0px;
+/*    border:1px solid black;*/
+}
+.posted-blessings{
+    background:#7AC4F3;
+    color:white;
+    font-weight:bold;
+    
+    
+}
+#other-blessings{
+    background:#7AC4F3;
+    color:white;
+    font-weight:bold;
+}
+.middle{
+    vertical-align: middle;
+}
+#church_logo{
+    width: 140px;
+}
+#need-title-desc{
+    vertical-align: top;
+    width:350px;
+}
+#need-status{
+    vertical-align: top;
+}
+.need-info{
+    background: #ffffff;
+    width:600px;
+    vertical-align: top;
+    height:50px;
+    padding: 10px;
+}
+
+
+.blessing-info{
+    background: #ffffff;
+    padding: 20px;
+    vertical-align: top;
+    width:600px;
+}
+.blessing-info table{
+    height: 400px;
+}
+.need-headers td{ 
+    color:#68707D;
+    font-weight: bold;
+}
+.blue-color{ 
+    color:#82A1C0;
+    font-weight: bold;
+}
+.dark-blue{
+    color:#6B7076;
+}
+
+.image-width{
+    width:100px;
+}
+#need-info-tbl{
+    width:600px;
+}
+#other-blessings-content{
+    vertical-align: top;
+    padding:10px;
+    overflow: auto;
+    height: 200px;
+}

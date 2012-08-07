@@ -1,0 +1,8 @@
+.church_details{
+    border: 1px solid #C9E0ED;
+    padding: 10px;
+    margin: 10px;
+}
+.social:hover{
+    opacity: .7;
+}

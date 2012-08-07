@@ -1,0 +1,150 @@
+#church-info{
+    background: #5F6F7F;
+    width: 493px;
+    height: auto;
+    display: inline-block;
+     
+}
+#info-main{
+    padding: 20px 20px 0px 20px;
+}
+#ptabs{
+    padding: 20px 20px 5px 20px;
+}
+#ptabs span a{
+    text-decoration: none;
+    color:#ffffff;
+}
+#church-info .profile-tabs{
+    padding: 5px 20px 5px 20px;
+    background: #BDC9D7;
+    color: #ffffff;
+    font-weight: bold;
+}
+.profile-tabs:hover{
+    opacity: .7;
+}
+#broadcast-section{
+    width: 453px;
+    vertical-align: top;
+    display: inline-block;
+/*    background: black;*/
+}
+#broadcas-main{
+    padding: 20px;
+}
+#broadcast-section textarea{
+    border: 1px solid #CFCFCF;
+    resize: none;
+}
+#broadcast-section .submit{
+    text-align: right;
+}
+#church-logo{
+/*    height: 100px;
+    width: 100px;*/
+    background: black;
+    display: inline-block
+}
+#church-details{
+    position: absolute;
+    top: 195px;
+    padding-left: 20px; 
+/*    left: 25%;*/
+    height: auto;
+    width: auto;
+    color: white;
+    font-size: 12px;
+/*    background: red;*/
+    display: inline-block
+}
+#church_name{
+    color: white;
+    font-size: 20px;
+}
+#church_tagtitle{
+    color: white;
+    font-size: 12px;
+    font-style: italic; 
+}
+#jdate{
+    vertical-align: top;
+}
+#tab-content{
+    background: #ffffff;
+    padding: 10px;
+/*    height: 500px;*/
+}
+#tab-content table{
+    width: max-content;
+}
+#tab-content .info-label{
+    text-align: right;
+}
+#need-section{
+/*    height: 30px;*/
+    background: #BDC9D7;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    
+        padding: 10px 0px 10px 10px;
+/*    border: 1px solid black;*/
+}
+#need-section .this-header{
+    text-align: left;
+    vertical-align: middle;
+    width: 304px;   
+    display: inline-block
+}
+#need-section .this-button{
+    text-align: right;
+    vertical-align: middle;
+    display: inline-block
+}
+.need-list{
+    padding: 5px;
+    border-bottom: 1px solid #B5B5B5;
+}
+#blessing-section{
+/*    height: 30px;*/
+    background: #BDC9D7;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    
+        padding: 10px 0px 10px 10px;
+/*    border: 1px solid black;*/
+}
+#blessing-section .this-header{
+    text-align: left;
+    vertical-align: middle;
+    width: 276px;   
+    display: inline-block
+}
+#blessing-section .this-button{
+    text-align: right;
+    vertical-align: middle;
+    display: inline-block
+}
+.blessing-list{
+    padding: 5px;
+    border-bottom: 1px solid #B5B5B5;
+}
+#editprofile{
+    display:none;
+}
+#ministriestable{
+    display:none;
+}
+/*#edit
+{
+    text-decoration: none;
+    color:#ffffff;
+}
+#infobtn
+{
+    
+}*/
+
+

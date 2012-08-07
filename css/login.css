@@ -1,0 +1,38 @@
+#get-connected{
+/*    background: #E0E1E3;*/
+    width: 650px;
+    display: inline-block;
+}
+#form-box{
+    font-size: 20px;
+    font-weight: bold;
+    color: #0D3C80;
+    padding: 20px;
+}
+.form{
+    vertical-align: top;
+    display: inline-block;
+}
+.form-elements{
+    font-size: 12px;
+    color: #555555;
+}
+#login-header{
+    background: #7AC4F3;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 5px;
+}
+#indiv-head{
+    font-size: 15px;
+    color: #555555;
+    font-weight: bold;
+    
+}
+#indiv-desc{
+    font-size: 12px;
+    color: #555555;
+    font-style: italic;
+    
+}

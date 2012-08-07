@@ -1,0 +1,68 @@
+.posted-needs{
+    background:#7AC4F3;
+    color:white;
+    font-weight:bold;
+    
+    
+}
+#other-needs{
+    background:#7AC4F3;
+    color:white;
+    font-weight:bold;
+}
+.middle{
+    vertical-align: middle;
+}
+#church_logo{
+    width: 140px;
+}
+#supplies-title-desc{
+    vertical-align: top;
+    width:350px;
+}
+#supplies-status{
+    vertical-align: top;
+}
+.supplies-info{
+    background: #ffffff;
+    vertical-align:top;
+    height:50px;
+    padding: 10px;
+    width:600px;
+}
+.needs-info{
+    background: #ffffff;
+    vertical-align:top;
+    height: 50px;
+    padding: 10px;
+    width:600px;
+}
+.supplies-headers td{ 
+    color:#68707D;
+    font-weight: bold;
+}
+.blue-color{ 
+    color:#82A1C0;
+    font-weight: bold;
+}
+.dark-blue{
+    color:#6B7076;
+}
+table{
+    padding:0px;
+    margin:0px;
+}
+table td{
+    padding:0px;
+    margin:0px;
+}
+.image-width{
+    width:100px;
+}
+#supplies-info-tbl{
+    width:600px;
+}
+#other-needs-content{
+    vertical-align: top;
+    padding:10px;
+}

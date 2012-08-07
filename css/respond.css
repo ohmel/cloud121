@@ -1,0 +1,104 @@
+table{
+    padding:0px;
+    margin:0px;
+}
+table td{
+    padding:0px;
+    margin:0px;
+/*    border:1px solid black;*/
+}
+.posted-response{
+    background:#7AC4F3;
+    color:white;
+    font-weight:bold;
+    
+    
+}
+.blue-color{ 
+    color:#82A1C0;
+    font-weight: bold;
+}
+.dark-blue{
+    color:#6B7076;
+    font-size: 12px;
+}
+.malaki{
+    font-size: 15px;
+    font-weight: bold;
+}
+#other-response{
+    background:#7AC4F3;
+    color:white;
+    font-weight:bold;
+}
+.middle{
+    vertical-align: middle;
+}
+.response-info{
+    background: #ffffff;
+    width:600px;
+    vertical-align: top;
+    height:50px;
+    padding: 10px;
+}
+.response-headers td{ 
+    color:#68707D;
+    font-weight: bold;
+}
+.blue-color{ 
+    color:#82A1C0;
+    font-weight: bold;
+}
+.dark-blue{
+    color:#6B7076;
+}
+#need-title-desc{
+    vertical-align: top;
+    width:350px;
+}
+#supplies-title-desc{
+    vertical-align: top;
+    width:350px;
+}
+.response-info{
+    background: #ffffff;
+    width:600px;
+    vertical-align: top;
+    height:50px;
+    padding: 10px;
+}
+#other-supplies-content{
+    vertical-align: top;
+    padding:10px;
+    overflow: auto;
+    height: 200px;
+}
+#interact{
+    padding:10px;
+    vertical-align: top;
+}
+#need-status{
+    text-align: right;
+}
+#supplies-status{
+    text-align: right;
+}
+.comment-span{
+    padding:10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+#church_detail{
+    text-align: right;
+    color:#80c6f4;
+}
+#comments{
+    padding:10px;
+    overflow: auto;
+/*    border: 1px solid black;*/
+    height: 150px;
+}
+.buttons{
+    text-align: right;
+}
+

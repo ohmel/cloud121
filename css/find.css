@@ -1,0 +1,24 @@
+/*table{
+    border: 1px solid black;
+}
+td{
+    border: 1px solid black;
+}*/
+#map{
+    width: 300px;
+}
+#find-header{
+    height: 50px;
+}
+#tbl-headers td{
+    background: #5F6F7F;
+    color: #FFFFFF;
+    text-align: center;
+}
+#tbl-list{
+    vertical-align: top;
+}
+#redirect-info{
+    padding: 10px;
+    background: #42AAF1;
+}
