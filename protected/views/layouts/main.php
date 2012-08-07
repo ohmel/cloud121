@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
         <link rel="icon" type="image/ico" href="<?php echo Yii::app()->request->baseUrl; ?>/images/icons/favicon.ico"/>
-        <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+        <title><?php echo CHtml::encode($this->pageTitle); ?> <?php if($this->getNotifCount()>0){ echo "(".$this->getNotifCount().")";} ?></title>
         <script>
             //            $(document).ready(function(){
             //                $('#notifs-lnk').click(function(){

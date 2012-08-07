@@ -172,21 +172,11 @@ class SiteController extends Controller {
     }
 
     public function actionFind() {
-//        if ($_GET['search'] && $_GET['fields']) {
-//            $criteria = $_GET['fields'] . " like :search";
-//            $params = array(':search' => '%' . $_GET['search'] . '%');
-//            $church = Church::model()->findAll($criteria, $params);
-//        } else {
-//            $criteria = "";
-//            $params = "";
-//            $church = Church::model()->findAll();
-//        }
-//        $church = Church::model()->findAll();
         $church = new Church('search');
         $church->unsetAttributes();
+        
         if (isset($_GET['Church']))
             $church->attributes = $_GET['Church'];
-        
         $this->render('find', array('church' => $church));
     }
 
