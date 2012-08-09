@@ -28,6 +28,7 @@ class SiteController extends Controller {
     public function actionSearch()
     {
         $this->layout = '//layouts/column1';
+        // extenstion widget for search website....
        $results = $this->widget('application.extensions.websiteSearch.WebsiteSearch', array(
                 'model' => array(
                     'Church' => array(
@@ -213,10 +214,6 @@ class SiteController extends Controller {
         $this->performAjaxValidation(array($address, $church, $user));
 
         if ($_POST['AppUsers'] && $_POST['Church'] && $_POST['ChurchAddress']) {
-//            $this->printa(Yii::app()->user->returnUrl);exit;
-//          $this->printa($_POST['AppUsers']);
-//          $this->printa($_POST['user_retype']);exit;
-
             $church->attributes = $_POST['Church'];
             $church->profile_id = 0;
             $church->address_id = 0;

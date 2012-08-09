@@ -14,25 +14,11 @@
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
         <link rel="icon" type="image/ico" href="<?php echo Yii::app()->request->baseUrl; ?>/images/icons/favicon.ico"/>
-        <title><?php echo CHtml::encode($this->pageTitle); ?> <?php if($this->getNotifCount()>0){ echo "(".$this->getNotifCount().")";} ?></title>
-        <script>
-            //            $(document).ready(function(){
-            //                $('#notifs-lnk').click(function(){
-            //                    $("#notifications1").toggle();
-            //                    $.ajax({url:"index.php?r=site/notifications&id="+<?php echo Yii::app()->user->getUser('churchId') ?>, success:function(result){
-            //                            $("#notifs").html(result);   
-            //                        }});
-            //                    //                    if($("#sem").val() == ""){
-            //                    //                        $("#notifs-lnk").css({'background-color': 'white'});
-            //                    //                        $("#sem").val("1");
-            //                    //                    }else{
-            //                    //                        $("#notifs-lnk").css({'background-color': 'transparent'});
-            //                    //                        $("#sem").val("");
-            //                    //                    }
-            //                });
-            //            });
-            
-        </script>
+        <title><?php echo CHtml::encode($this->pageTitle); ?> <?php
+if ($this->getNotifCount() > 0) {
+    echo "(" . $this->getNotifCount() . ")";
+}
+?></title>
         <?php
         $id = Yii::app()->user->getUser('churchId');
         Yii::app()->clientScript->registerScript('main', "
@@ -92,9 +78,6 @@
                     </center>
                 </div>
             </div>
-            <!--            <div>
-                            <img src="<?php echo CHtml::encode(Yii::app()->request->baseUrl); ?>/images/headers/cloudlogo.png">
-                        </div>-->
         </div><!-- header -->
         <br/>
         <br/>
@@ -103,7 +86,6 @@
             <div id="cloud-banner">
                 <div id="search-txt">
                     <?php echo CHtml::link(Yii::app()->user->getUser('churchName'), array('church/view', 'id' => Yii::app()->user->getUser('churchId'))); ?>
-                    <? //php echo SearchAction::renderInputBox(); ?>
 
 
                 </div>
@@ -117,40 +99,13 @@
             <?php endif ?>
 
             <?php echo $content; ?>
-            <?php
-//            $this->widget('application.extensions.WebsiteSearch.WebsiteSearch', array(
-//                'model' => array(
-//                    'Church' => array(
-//                        'church_name, tel_num, email, website, fb_account, twitter_account, youtube_account',
-//                        'church_name, website',
-//                        'church_id'
-//                    ),
-//                    'ChurchNeeds' => array(
-//                        'need_title, need_desc',
-//                        'need_title, need_desc',
-//                        'need_id'
-//                    ),
-//                    'ChurchSupplies' => array(
-//                        'supplies_title, supplies_desc',
-//                        'supplies_title, supplies_desc',
-//                        'supplies_id'
-//                    ),
-//                    'News' => array(
-//                        'news_title, news_content',
-//                        'news_title, news_content',
-//                        'news_id'
-//                    ),
-//                ),
-//            ));
-            ?>
-
             <div class="clear">   </div>
 
             <div id="footer">
                 <!-- 
-                 Copyright &copy; <? //php echo date('Y');     ?> by My Company.<br/>
+                 Copyright &copy; <? //php echo date('Y');      ?> by My Company.<br/>
                  All Rights Reserved.<br/>
-                <? //php echo Yii::powered();  ?>-->
+                <? //php echo Yii::powered();    ?>-->
                 <div class="footer-blocks" id="subscribe" style="display: none">
                     <b>Subscribe to our updates:</b><br/>
                     <?php
