@@ -68,7 +68,7 @@ class EImageColumn extends CGridColumn {
                 if($i == 2){
                     $lnk = $data->youtube_account;
                 }
-                $content .= "<a href='$lnk'>$contentimg</a>";
+                $content .= "<a href='https://$lnk'>$contentimg</a>";
             }
         }
         echo $content;

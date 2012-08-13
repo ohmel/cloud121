@@ -40,6 +40,10 @@ class MyWebUser extends CWebUser
                 $church = Church::model()->findByPk($model->church_id);
                 return $church->address->country;
                 break;
+            case 'latlng':
+                $church = Church::model()->findByPk($model->church_id);
+                return $church->latlng;
+                break;
             default:
                 return $model->attributes;
                 break;

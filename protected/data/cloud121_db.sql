@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 17, 2012 at 08:51 PM
+-- Generation Time: Aug 10, 2012 at 09:45 AM
 -- Server version: 5.0.51
 -- PHP Version: 5.2.5
 
@@ -27,15 +27,17 @@ CREATE TABLE IF NOT EXISTS `affiliation` (
   `status` int(3) NOT NULL,
   PRIMARY KEY  (`affilition_id`),
   KEY `church_id` (`church_id`,`affid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `affiliation`
 --
 
 INSERT INTO `affiliation` (`affilition_id`, `church_id`, `affid`, `affiliation_date`, `status`) VALUES
-(1, 2, 1, '2012-05-10', 1),
-(2, 1, 2, '2012-05-10', 1);
+(1, 1, 2, '2012-08-01', 2),
+(2, 2, 1, '2012-08-01', 2),
+(3, 1, 3, '2012-08-07', 1),
+(4, 3, 1, '2012-08-07', 1);
 
 -- --------------------------------------------------------
 
@@ -140,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `app_users` (
   KEY `app_users_FKIndex1` (`user_type`),
   KEY `app_users_FKIndex2` (`ud_id`),
   KEY `church_id` (`church_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `app_users`
@@ -155,11 +157,15 @@ INSERT INTO `app_users` (`user_id`, `ud_id`, `church_id`, `user_name`, `user_ful
 (9, 3, 0, 'maasinadmin', 'Maasin Administrator', 'd8578edf8458ce06fbc5bb76a58c5ca4', 'Super Administrator', 1),
 (10, 4, 2, 'Balan', 'Balan Balanan', 'd8578edf8458ce06fbc5bb76a58c5ca4', 'Branch Manager', 1),
 (11, 1, 0, 'kew', 'Ricardo Datuin', 'efe6398127928f1b2e9ef3207fb82663', 'Branch Manager', 1),
+(17, 0, 3, 'jesm', 'david', 'c4eb55770fa22491d13fa72a0b67d9b9', 'Member', 1),
 (12, 4, 0, 'vhan.banaag', 'Vhan Banaag', 'd8578edf8458ce06fbc5bb76a58c5ca4', 'Validator', 1),
 (13, 0, 0, 'jenny', 'Jenny Pinaghirapan', 'd8578edf8458ce06fbc5bb76a58c5ca4', 'Member', 2),
 (14, 1, 27, 'gino', 'Gino Ombag', 'd8578edf8458ce06fbc5bb76a58c5ca4', 'Member', 1),
 (15, 1, 1, 'ohmel', 'Administrator', 'd8578edf8458ce06fbc5bb76a58c5ca4', 'Member', 1),
-(16, 0, 2, 'Ace', 'ako', '101a6ec9f938885df0a44f20458d2eb4', 'Member', 1);
+(16, 0, 2, 'ace', 'ako', '101a6ec9f938885df0a44f20458d2eb4', 'Member', 1),
+(18, 1, 1, 'test1', 'test1', 'test1', '1', 1),
+(19, 0, 4, 'men', 'Men the men', '3675ac5c859c806b26e02e6f9fd62192', 'Member', 1),
+(20, 0, 5, 'dddignadice', 'Men the men', '3c5f6d39000e4d886f78cf7bf161fc13', 'Member', 1);
 
 -- --------------------------------------------------------
 
@@ -3369,15 +3375,18 @@ CREATE TABLE IF NOT EXISTS `church` (
   KEY `profile_id` (`profile_id`),
   KEY `status` (`status`),
   FULLTEXT KEY `search` (`church_name`,`email`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `church`
 --
 
 INSERT INTO `church` (`church_id`, `profile_id`, `church_name`, `address_id`, `tel_num`, `email`, `website`, `fb_account`, `twitter_account`, `youtube_account`, `latlng`, `status`, `type`) VALUES
-(1, 0, 'Community Baptist Church', 0, '09395923781', '', 'cbc.com', 'http://facebook.com/cbc', 'http://twitter.com/cbc', 'youtube.com', '17.644022027872722, 121.31103515625', 2, 2),
-(2, 0, 'Truevine Church', 0, '09242324359', 'ace@gmail.com', 'haha.com', 'allreace.com', '', '', '13.368243250897299, 121.17919921875', 2, 1);
+(1, 0, 'Community Baptist Church', 0, '09395923781', 'dustindignadice@yahoo.com', 'cbc.com', 'http://facebook.com/cbc', 'http://twitter.com/cbc', 'youtube.com', '17.644022027872722, 121.31103515625', 2, 2),
+(2, 0, 'Truevine Church', 0, '09242324359', 'ace@gmail.com', 'haha.com', 'allreace.com', '', '', '13.368243250897299, 121.17919921875', 2, 1),
+(3, 0, 'HEHE', 0, '1234', 'test', 'test', 'test', 'test', 'test', '17.308687886770034, 121.640625', 2, 1),
+(4, 0, 'Gospel Fellowship Center', 0, '321312312312', 'arawasf', 'sdfasdfsa', 'face', 'twitt', 'yout', '0', 1, 1),
+(5, 0, 'abbc', 0, '321312312312', 'dustindignadice@yahoo.com', 'sdfasdfsa', 'face', 'twitt', 'yout', '0', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -3396,15 +3405,18 @@ CREATE TABLE IF NOT EXISTS `church_address` (
   `address_det` varchar(100) NOT NULL,
   PRIMARY KEY  (`address_id`),
   KEY `church_id` (`church_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `church_address`
 --
 
 INSERT INTO `church_address` (`address_id`, `church_id`, `city`, `country`, `province`, `municipality`, `zip`, `address_det`) VALUES
-(1, 1, 'Pasig', 'Philippines', 'Metro Manila', '', '1920', 'Dr. Sixto Antonio Avenue Brgy.'),
-(2, 2, 'manila', 'philippines', 'ahhaha', '', '1400', 'asdjkdflgjl');
+(1, 1, 'Pasigyy', 'Philippines', 'Metro Manila', '', '1920', 'Dr. Sixto Antonio Avenue Brgy.'),
+(2, 2, 'manila', 'philippines', 'ahhaha', '', '1400', 'asdjkdflgjl'),
+(3, 3, 'test', 'tset', 'test', '', 'test', 'test'),
+(4, 4, 'angeles', 'phillippines', 'pampanga', 'none', '1290', 'Bldg/Unit, Street, Brangay'),
+(5, 5, 'angeles', 'phillippines', 'pampanga', 'none', '1290', 'sadfa sadfasdf sadf');
 
 -- --------------------------------------------------------
 
@@ -3446,21 +3458,76 @@ CREATE TABLE IF NOT EXISTS `church_needs` (
   `need_date` date NOT NULL,
   `need_status` int(3) NOT NULL,
   `latlng` varchar(100) NOT NULL,
+  `imagePath` varchar(100) NOT NULL,
   PRIMARY KEY  (`need_id`),
   KEY `church_id` (`church_id`),
   FULLTEXT KEY `search` (`need_title`,`need_desc`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=60 ;
 
 --
 -- Dumping data for table `church_needs`
 --
 
-INSERT INTO `church_needs` (`need_id`, `church_id`, `need_title`, `need_desc`, `category`, `need_date`, `need_status`, `latlng`) VALUES
-(1, 1, 'Needing Ushers', 'We are inviting people to sign up as ushers and usherettes in our event', 0, '2012-04-30', 1, ''),
-(2, 2, 'hahahah', 'hhhshsshhss', 0, '2012-04-30', 4, ''),
-(3, 1, 'Needing Ushers', 'afasfadfsdf', 0, '2012-05-03', 1, ''),
-(4, 1, 'hahah', 'hahahah', 0, '2012-05-07', 1, '44.42331776882713, 104.00389909744263'),
-(5, 1, 'ohmel', 'oheml', 0, '2012-05-07', 1, '50.72972025522268, 72.01171159744263');
+INSERT INTO `church_needs` (`need_id`, `church_id`, `need_title`, `need_desc`, `category`, `need_date`, `need_status`, `latlng`, `imagePath`) VALUES
+(1, 1, 'Needing Ushers', 'We are inviting people to sign up as ushers and usherettes in our event', 0, '2012-04-30', 1, '', '/images/icons/facebook.png'),
+(2, 2, 'hahahah', 'hhhshsshhss', 0, '2012-04-30', 4, '', ''),
+(3, 1, 'Needing Ushers', 'afasfadfsdf', 0, '2012-05-03', 1, '', ''),
+(4, 1, 'hahah', 'hahahah', 0, '2012-05-07', 1, '44.42331776882713, 104.00389909744263', ''),
+(5, 1, 'ohmel', 'oheml', 0, '2012-05-07', 1, '50.72972025522268, 72.01171159744263', ''),
+(6, 1, 'Hmmm', 'Hmmmm', 0, '2012-05-19', 1, '13131', ''),
+(7, 1, 'dfdsf', 'sdfsd', 0, '2012-05-19', 1, '141341', ''),
+(8, 1, 'dfdsf', 'sdfsd', 0, '2012-05-19', 1, '1234', ''),
+(9, 1, 'dfdsf', 'sdfsd', 0, '2012-05-19', 1, '1243', ''),
+(10, 1, 'dfd', 'dfdf', 0, '2012-05-19', 1, '1343', ''),
+(11, 1, 'New cat', 'New cat', 0, '2012-05-19', 1, '1423', ''),
+(12, 1, 'New Category', 'sdfasfas', 0, '2012-05-19', 1, '1233', ''),
+(13, 1, 'sadfas', 'safsdf', 0, '2012-05-19', 1, '1111', ''),
+(14, 1, 'asfasdf', 'sfasfd', 0, '2012-05-19', 1, '1333', ''),
+(15, 1, 'safasd', 'safasdf', 0, '2012-05-19', 1, '1444', ''),
+(16, 1, 'asdfasdf', 'safasdf', 0, '2012-05-19', 1, '1423', ''),
+(17, 1, 'asdfasd', 'safsadf', 0, '2012-05-19', 1, '1332', ''),
+(18, 1, 'dsdfsdf', 'sdfsdfsd', 0, '2012-05-19', 1, '1223', ''),
+(19, 1, 'logistics request', 'sadfasf', 0, '2012-05-20', 1, '1324', ''),
+(20, 2, 'My need', 'sfasdf', 0, '2012-05-21', 1, '15.282418762053915, 121.22680658474565', ''),
+(21, 2, 'Ahem', 'ahem', 0, '2012-05-23', 1, '', ''),
+(22, 1, 'qwe', 'qwe', 0, '2012-05-23', 1, '', ''),
+(23, 1, 'asdf', 'sadf', 0, '2012-05-23', 1, '', ''),
+(24, 1, 'sadfasd', 'sfasfsd', 1, '2012-01-01', 1, '12321321', ''),
+(25, 1, 'asdf', 'sadfasdf', 45, '2012-06-07', 1, '12312312312', ''),
+(26, 1, 'dfsdfs', 'sadfasfds', 10, '2012-06-07', 1, '12312312312', ''),
+(27, 1, 'ohmel', 'ohmel', 11, '2012-06-07', 1, '12312312312', ''),
+(28, 1, 'jesm', 'jesm', 11, '2012-06-07', 1, '12312312312', ''),
+(29, 1, 'ej', 'ej', 1, '2012-06-07', 1, '12312312312', ''),
+(30, 1, 'ung totoo', 'ung totoo', 1, '2012-06-14', 1, '16.172472808400173, 120.8715820315', ''),
+(31, 1, 'HRTJYUKTYHJKJ', 'JYUJT', 1, '2012-06-20', 1, '16.72038505169666, 121.9262695315', ''),
+(32, 1, 'ung totoo', 'mnjhjh', 1, '2012-06-23', 1, '16.97274102000168, 121.1352539065', ''),
+(33, 1, 'ghfhg', 'hghjgj', 1, '2012-06-23', 1, '13.496472765761661, 124.079589844', ''),
+(34, 1, 'sdfds', 'sasadasdas', 1, '2012-06-23', 1, '16.214674588251214, 121.0473632815', ''),
+(35, 1, 'need1', 'need1 desc', 1, '2012-06-24', 1, '11.221510260013265, 115.290527344', ''),
+(36, 1, 'safasfsda', 'safsadfsaf', 1, '2012-06-25', 1, '17.392579271060427, 120.212402344', ''),
+(37, 1, 'qwer', 'wqre', 1, '2012-06-26', 1, '12.25412773766009, 119.3774414065', ''),
+(38, 1, 'guitars', 'asf', 1, '2012-06-27', 1, '16.97274102000168, 121.1352539065', ''),
+(39, 1, 'asdfds', 'safsdafsd', 2, '2012-06-28', 1, '16.509832826908518, 121.706542969', ''),
+(40, 1, 's', 's', 1, '2012-06-28', 1, '16.08804222015148, 119.5532226565', ''),
+(41, 1, 'a', 'a', 52, '2012-06-28', 1, '14.647368383899316, 122.761230469', ''),
+(42, 1, 'qwerty', 'qwy', 0, '2012-06-29', 1, '', ''),
+(43, 1, 'dfsdfs', 'jjdsafsdfasd', 0, '2012-06-30', 1, '17.26672782352318, 122.5415039065', ''),
+(44, 1, 'fdfd', 'dfdfd', 0, '2012-06-30', 1, '18.854310361892434, 128.6938476565', ''),
+(45, 1, 'asdfasdf', 'asdfsadfasdf', 0, '2012-06-30', 1, '13.410994034324398, 121.003417969', ''),
+(46, 1, 'sdfsdfds', 'sdfsdfsdf', 0, '2012-06-30', 1, '', ''),
+(47, 1, 'sdfsdf', 'sdfsdfsdf', 0, '2012-06-30', 1, '16.425547506919408, 121.4868164065', ''),
+(48, 5, 'asdfas', 'asdfsfsad', 0, '2012-06-30', 1, '', ''),
+(49, 5, 'sfsf', 'sfsdfasd', 0, '2012-06-30', 1, '16.38339112361106, 121.3110351565', ''),
+(50, 5, 'asdfasdfsa', 'dfasdfsadfasdf', 0, '2012-07-01', 1, '', ''),
+(51, 5, 'sadfasd', 'u', 0, '2012-07-01', 1, '', ''),
+(52, 5, 'sdfsdfds', 'jjjj', 0, '2012-07-01', 1, '', ''),
+(53, 5, 'asdfasdfasd', 'asfdsafasdf', 0, '2012-07-01', 1, '', ''),
+(54, 1, 'sdaf', 'saf', 0, '2012-07-02', 1, '', ''),
+(55, 1, 'a', 'uuuu', 0, '2012-07-02', 1, '10.314919285815883, 114.6313476565', ''),
+(56, 1, 'ohmel', 'sdfgh', 0, '2012-07-02', 1, '8.407168163603822, 120.827636719', ''),
+(57, 1, 'EIURTEIRWARIWUR', 'WEIRUAWIRU', 0, '2012-07-06', 1, '10.876464994819019, 129.089355469', ''),
+(58, 1, 'a', 'a', 0, '2012-07-14', 1, '13.410994034324398, 115.202636719', ''),
+(59, 1, 'sdsdf', 'sfsf', 0, '2012-08-01', 1, '15.002162989624075, 120.36998748804297', '');
 
 -- --------------------------------------------------------
 
@@ -3511,7 +3578,7 @@ CREATE TABLE IF NOT EXISTS `church_shoutout` (
   PRIMARY KEY  (`shoutout_id`),
   KEY `church_id` (`church_id`),
   FULLTEXT KEY `search` (`shoutout_content`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `church_shoutout`
@@ -3520,7 +3587,10 @@ CREATE TABLE IF NOT EXISTS `church_shoutout` (
 INSERT INTO `church_shoutout` (`shoutout_id`, `church_id`, `shoutout_content`, `shoutout_date`, `shoutout_type`) VALUES
 (1, 1, 'Speak Anything!', '2012-04-30', 1),
 (2, 2, 'We are the Champions!!', '2012-05-03', 1),
-(3, 1, 'Speak Anything!', '2012-05-09', 1);
+(3, 1, 'Speak Anything!', '2012-05-09', 1),
+(4, 2, 'Speak Anything!', '2012-05-23', 1),
+(5, 2, 'HAHAHAH', '2012-06-23', 1),
+(6, 1, 'sdfgjjolfbn ', '2012-08-01', 1);
 
 -- --------------------------------------------------------
 
@@ -3542,7 +3612,7 @@ CREATE TABLE IF NOT EXISTS `church_supplies` (
   FULLTEXT KEY `supplies_desc` (`supplies_desc`),
   FULLTEXT KEY `supplies_title` (`supplies_title`),
   FULLTEXT KEY `search` (`supplies_title`,`supplies_desc`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `church_supplies`
@@ -3552,7 +3622,21 @@ INSERT INTO `church_supplies` (`supplies_id`, `church_id`, `supplies_title`, `su
 (1, 2, '2nd hand celica', 'we are gving out our celica for low price pls see transanction', '', '2012-04-30', 4, ''),
 (2, 1, '2nd hand yamaha rbx bass guitar', 'bass guitar', '', '2012-04-30', 3, ''),
 (3, 1, 'heheh', 'hehehhe', '', '2012-05-07', 1, '39.72972025522268, 72.01171159744263'),
-(4, 2, 'heheh', 'heheheh', '', '2012-05-07', 1, '-32.74416396741863, 149.70702409744263');
+(4, 2, 'heheh', 'heheheh', '', '2012-05-07', 1, '-32.74416396741863, 149.70702409744263'),
+(5, 1, 'asdfas', 'safads', '', '2012-05-20', 1, ''),
+(6, 1, 'ewq', 'eqw', '', '2012-05-23', 1, ''),
+(7, 2, 'eqw', 'eqw', '', '2012-05-23', 1, ''),
+(8, 1, 'sadfsadf', 'sfsafsdf', '1-2-3', '2012-06-26', 1, '17.685895196741324, 121.3989257815'),
+(9, 1, 'fsafsd', 'sadfsdfsd', '1-2-3', '2012-06-26', 1, '14.264383087565346, 122.233886719'),
+(10, 1, 'sss', 'sss', '1-4', '2012-06-29', 1, '18.937464429644468, 121.618652344'),
+(11, 1, 'fdgdfg', 'dfgdfgdfg', '1', '2012-06-30', 1, '13.880745842028299, 118.103027344'),
+(12, 1, 'blah blah', 'blah blah', '2', '2012-06-30', 1, '14.434680215299965, 121.091308594'),
+(13, 5, 'sdfasd', 'sdfsdfs', '1', '2012-06-30', 1, '16.130262012037427, 121.530761719'),
+(14, 5, 'sadfadsf', 'sdafsadfds', '1-2-3', '2012-07-01', 1, ''),
+(15, 1, 'sf', 'sdaf', '1-2', '2012-07-02', 1, '9.145486056170025, 120.0805664065'),
+(16, 1, 'sadf', 'sdf', '1-2-3', '2012-07-02', 1, '11.56614376776558, 115.817871094'),
+(17, 1, 'blah blah', 'ffff', '1-2-3', '2012-07-02', 1, ''),
+(18, 1, 'qwert', 'qwerty', '41-40-39', '2012-07-23', 1, '');
 
 -- --------------------------------------------------------
 
@@ -3570,7 +3654,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   PRIMARY KEY  (`comment_id`),
   KEY `church_id` (`church_id`,`need_id`,`supplies_id`),
   FULLTEXT KEY `comment_content` (`comment_content`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `comments`
@@ -3584,9 +3668,24 @@ INSERT INTO `comments` (`comment_id`, `church_id`, `need_id`, `supplies_id`, `co
 (5, 1, 2, 0, 'dsgerweq', '2012-04-30'),
 (6, 1, 2, 0, 'dftgerwq', '2012-04-30'),
 (7, 1, 2, 0, 'dftgerwq', '2012-04-30'),
-(8, 1, 1, 0, '', '2012-05-10'),
+(8, 1, 1, 0, 'bawawawgahaha', '2012-05-10'),
 (9, 1, 5, 0, '', '2012-05-10'),
-(10, 1, 5, 0, '', '2012-05-10');
+(10, 1, 5, 0, '', '2012-05-10'),
+(11, 2, 23, 0, 'sdjfhsdkfhdsf', '2012-06-23'),
+(12, 5, 1, 0, 'hahahahaaha', '2012-07-01'),
+(13, 5, 1, 0, 'hgfytfytdfrtddfgf', '2012-07-01'),
+(14, 1, 1, 0, 'Ohmel pogi\r\n', '2012-07-02'),
+(15, 1, 4, 0, 'Please contact me for a deal I want to offer', '2012-07-02'),
+(16, 1, 3, 0, 'ei', '2012-07-02'),
+(17, 1, 0, 9, 'uiuiu', '2012-07-02'),
+(18, 1, 0, 9, 'jijiji', '2012-07-02'),
+(19, 1, 0, 9, 'ijmi', '2012-07-02'),
+(20, 1, 0, 6, 'HI I WANT TO HAVE A DEAL WITH YOU', '2012-07-06'),
+(21, 1, 0, 6, 'sdfjhdsfsdfsdf', '2012-07-06'),
+(22, 1, 0, 1, 'Truevine Church', '2012-07-14'),
+(23, 1, 1, 0, 'jjbkhl/lkn', '2012-07-23'),
+(24, 1, 0, 3, 'hello', '2012-07-31'),
+(25, 1, 0, 3, 'hi hello!', '2012-07-31');
 
 -- --------------------------------------------------------
 
@@ -3607,7 +3706,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   KEY `church_id` (`church_id`),
   KEY `event_type` (`event_type`),
   FULLTEXT KEY `event_name` (`event_name`,`event_desc`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `events`
@@ -3615,17 +3714,19 @@ CREATE TABLE IF NOT EXISTS `events` (
 
 INSERT INTO `events` (`event_id`, `event_name`, `event_desc`, `church_id`, `date_from`, `date_to`, `event_type`, `latlng`) VALUES
 (1, 'Party Party!', 'safasf saf asfsdghgf', 1, '2012-04-30', '2012-05-02', 4, ''),
-(2, 'Party Party!', 'Celebrate Jesus Celebrate!', 0, '2012-05-07', '2012-05-07', 4, ''),
-(3, 'Party Party!', 'Let\\''s celebrate!', 0, '2012-05-07', '2012-05-07', 4, ''),
-(4, '', '', 0, '0000-00-00', '0000-00-00', 1, ''),
-(5, 'Party Party!', 'asdfadsf', 0, '2012-05-07', '2012-05-07', 4, ''),
-(6, 'Spiritual Maturity Seminar', 'Seminars for newly saved christians', 0, '2012-05-02', '2012-05-02', 2, ''),
-(7, 'Spiritual Maturity Seminar', 'Training for New christians', 0, '2012-05-07', '2012-05-07', 2, ''),
-(8, 'Spiritual Maturity Seminar', 'sdasd', 0, '2012-05-07', '2012-05-07', 2, ''),
-(9, 'party party2', 'hahahah', 0, '2012-05-11', '2012-05-14', 1, ''),
-(10, '', '', 0, '0000-00-00', '0000-00-00', 4, ''),
-(11, '', '', 0, '0000-00-00', '0000-00-00', 4, ''),
-(12, 'testq', 'sw;gjnsgplkjn', 0, '2012-05-02', '2012-05-04', 1, '');
+(2, 'Party Party!', 'Celebrate Jesus Celebrate!', 2, '2012-05-07', '2012-05-07', 4, ''),
+(3, 'Party Party!', 'Let\\''s celebrate!', 2, '2012-05-07', '2012-05-07', 4, ''),
+(4, '', '', 2, '0000-00-00', '0000-00-00', 1, ''),
+(5, 'Party Party!', 'asdfadsf', 1, '2012-05-07', '2012-05-07', 4, ''),
+(6, 'Spiritual Maturity Seminar', 'Seminars for newly saved christians', 3, '2012-05-02', '2012-05-02', 2, ''),
+(7, 'Spiritual Maturity Seminar', 'Training for New christians', 1, '2012-05-07', '2012-05-07', 2, ''),
+(8, 'Spiritual Maturity Seminar', 'sdasd', 1, '2012-05-07', '2012-05-07', 2, ''),
+(9, 'party party2', 'hahahah', 1, '2012-05-11', '2012-05-14', 1, ''),
+(10, '', '', 1, '0000-00-00', '0000-00-00', 4, ''),
+(11, '', '', 1, '0000-00-00', '0000-00-00', 4, ''),
+(12, 'testq', 'sw;gjnsgplkjn', 1, '2012-05-02', '2012-05-04', 1, ''),
+(13, 'Ako si Ohmel', 'Ohmel ay ako!', 1, '0000-00-00', '0000-00-00', 4, '8.624472107636684, 125.7934570315'),
+(14, 'Ako si Jesm', 'sadfasdf', 1, '0000-00-00', '0000-00-00', 2, '9.145486056170025, 117.8833007815');
 
 -- --------------------------------------------------------
 
@@ -3646,16 +3747,18 @@ CREATE TABLE IF NOT EXISTS `news` (
   KEY `church_id` (`church_id`),
   KEY `need_id` (`need_id`,`supplies_id`),
   FULLTEXT KEY `name_of_index` (`news_title`,`news_content`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=71 ;
 
 --
 -- Dumping data for table `news`
 --
 
 INSERT INTO `news` (`news_id`, `news_title`, `news_content`, `news_date`, `church_id`, `news_type`, `need_id`, `supplies_id`) VALUES
-(1, 'A New Church has Connected!!', '<b>Community Baptist Church</b> has been validated and is ready to unify the body of Christ', '2012-04-30', 1, 1, 0, 0),
+(1, 'A New Church has Connected!!', 'is already Connected', '2012-04-30', 1, 1, 0, 0),
+(42, 'a', 'a', '2012-06-28', 1, 2, 41, 0),
 (2, 'Needing Ushers', 'We are inviting people to sign up as ushers and usherettes in our event', '2012-04-30', 1, 2, 1, 0),
-(3, 'A New Church has Connected!!', '<b>Truevine Church</b> has been validated and is ready to unify the body of Christ', '2012-04-30', 2, 1, 0, 0),
+(3, 'A New Church has Connected!!', 'is already Connected', '2012-04-30', 2, 1, 0, 0),
+(41, 's', 's', '2012-06-28', 1, 2, 40, 0),
 (4, '2nd hand celica', 'we are gving out our celica for low price pls see transanction', '2012-04-30', 2, 3, 0, 1),
 (5, '2nd hand yamaha rbx bass guitar', 'bass guitar', '2012-04-30', 1, 3, 0, 2),
 (6, 'hahahah', 'hhhshsshhss', '2012-04-30', 2, 2, 2, 0),
@@ -3670,7 +3773,57 @@ INSERT INTO `news` (`news_id`, `news_title`, `news_content`, `news_date`, `churc
 (15, 'ohmel', 'oheml', '2012-05-07', 1, 2, 5, 0),
 (16, '', '<br/> to ', '0000-00-00', 0, 5, 0, 0),
 (17, '', '<br/> to ', '0000-00-00', 0, 5, 0, 0),
-(18, 'testq', 'sw;gjnsgplkjn<br/>2012-05-02 to 2012-05-04', '0000-00-00', 0, 5, 0, 0);
+(18, 'testq', 'sw;gjnsgplkjn<br/>2012-05-02 to 2012-05-04', '0000-00-00', 0, 5, 0, 0),
+(19, 'Hmmm', 'Hmmmm', '2012-05-19', 1, 2, 6, 0),
+(20, 'dfdsf', 'sdfsd', '2012-05-19', 1, 2, 9, 0),
+(21, 'dfd', 'dfdf', '2012-05-19', 1, 2, 10, 0),
+(22, 'New cat', 'New cat', '2012-05-19', 1, 2, 11, 0),
+(23, 'New Category', 'sdfasfas', '2012-05-19', 1, 2, 12, 0),
+(24, 'sadfas', 'safsdf', '2012-05-19', 1, 2, 13, 0),
+(25, 'asfasdf', 'sfasfd', '2012-05-19', 1, 2, 14, 0),
+(26, 'safasd', 'safasdf', '2012-05-19', 1, 2, 15, 0),
+(27, 'asdfasdf', 'safasdf', '2012-05-19', 1, 2, 16, 0),
+(28, 'asdfasd', 'safsadf', '2012-05-19', 1, 2, 17, 0),
+(29, 'dsdfsdf', 'sdfsdfsd', '2012-05-19', 1, 2, 18, 0),
+(30, 'asdfas', 'safads', '2012-05-20', 1, 3, 0, 5),
+(31, 'A New Church has Connected!!', 'is already Connected', '2012-05-20', 3, 1, 0, 0),
+(32, 'logistics request', 'sadfasf', '2012-05-20', 1, 2, 19, 0),
+(33, 'A New Church has Connected!!', 'is already Connected', '2012-05-21', 3, 1, 0, 0),
+(40, 'asdfds', 'safsdafsd', '2012-06-28', 1, 2, 39, 0),
+(34, 'My need', 'sfasdf', '2012-05-21', 2, 2, 20, 0),
+(35, 'Ahem', 'ahem', '2012-05-23', 2, 2, 21, 0),
+(36, 'qwe', 'qwe', '2012-05-23', 1, 2, 22, 0),
+(37, 'ewq', 'eqw', '2012-05-23', 1, 3, 0, 6),
+(38, 'eqw', 'eqw', '2012-05-23', 2, 3, 0, 7),
+(39, 'asdf', 'sadf', '2012-05-23', 1, 2, 23, 0),
+(43, 'sss', 'sss', '2012-06-29', 1, 3, 0, 10),
+(44, 'qwerty', 'qwy', '2012-06-29', 1, 2, 42, 0),
+(45, 'dfsdfs', 'jjdsafsdfasd', '2012-06-30', 1, 2, 43, 0),
+(46, 'fdfd', 'dfdfd', '2012-06-30', 1, 2, 44, 0),
+(47, 'fdgdfg', 'dfgdfgdfg', '2012-06-30', 1, 3, 0, 11),
+(48, 'blah blah', 'blah blah', '2012-06-30', 1, 3, 0, 12),
+(49, 'asdfasdf', 'asdfsadfasdf', '2012-06-30', 1, 2, 45, 0),
+(50, 'sdfsdfds', 'sdfsdfsdf', '2012-06-30', 1, 2, 46, 0),
+(51, 'sdfsdf', 'sdfsdfsdf', '2012-06-30', 1, 2, 47, 0),
+(52, 'asdfas', 'asdfsfsad', '2012-06-30', 5, 2, 48, 0),
+(53, 'sfsf', 'sfsdfasd', '2012-06-30', 5, 2, 49, 0),
+(54, 'sdfasd', 'sdfsdfs', '2012-06-30', 5, 3, 0, 13),
+(55, 'asdfasdfsa', 'dfasdfsadfasdf', '2012-07-01', 5, 2, 50, 0),
+(56, 'sadfasd', 'u', '2012-07-01', 5, 2, 51, 0),
+(57, 'sdfsdfds', 'jjjj', '2012-07-01', 5, 2, 52, 0),
+(58, 'asdfasdfasd', 'asfdsafasdf', '2012-07-01', 5, 2, 53, 0),
+(59, 'sadfadsf', 'sdafsadfds', '2012-07-01', 5, 3, 0, 14),
+(60, 'sdaf', 'saf', '2012-07-02', 1, 2, 54, 0),
+(61, 'sf', 'sdaf', '2012-07-02', 1, 3, 0, 15),
+(62, 'a', 'uuuu', '2012-07-02', 1, 2, 55, 0),
+(63, 'sadf', 'sdf', '2012-07-02', 1, 3, 0, 16),
+(64, 'blah blah', 'ffff', '2012-07-02', 1, 3, 0, 17),
+(65, 'ohmel', 'sdfgh', '2012-07-02', 1, 2, 56, 0),
+(66, 'EIURTEIRWARIWUR', 'WEIRUAWIRU', '2012-07-06', 1, 2, 57, 0),
+(67, 'a', 'a', '2012-07-14', 1, 2, 58, 0),
+(68, 'Ako si Jesm', 'sadfasdf', '2012-07-23', 1, 5, 0, 0),
+(69, 'qwert', 'qwerty', '2012-07-23', 1, 3, 0, 18),
+(70, 'sdsdf', 'sfsf', '2012-08-01', 1, 2, 59, 0);
 
 -- --------------------------------------------------------
 
@@ -3686,6 +3839,8 @@ CREATE TABLE IF NOT EXISTS `notifications` (
   `notification_date` date NOT NULL,
   `type` int(5) NOT NULL,
   `status` int(5) NOT NULL,
+  `affid` int(20) NOT NULL,
+  `archived` int(5) NOT NULL,
   PRIMARY KEY  (`notification_id`),
   KEY `church_id` (`church_id`),
   KEY `type` (`type`),
@@ -3697,11 +3852,38 @@ CREATE TABLE IF NOT EXISTS `notifications` (
 -- Dumping data for table `notifications`
 --
 
-INSERT INTO `notifications` (`notification_id`, `church_id`, `notification_title`, `notification_content`, `notification_date`, `type`, `status`) VALUES
-(1, 1, 'Truevine Church', 'wants to affiliate with you!', '2012-05-10', 1, 2),
-(2, 2, 'You', 'sent an affiliate request to Truevine Church', '2012-05-10', 2, 2),
-(3, 2, 'Community Baptist Church', 'wants to affiliate with you!', '2012-05-10', 1, 1),
-(4, 1, 'You', 'sent an affiliate request to Community Baptist Church', '2012-05-10', 2, 2);
+INSERT INTO `notifications` (`notification_id`, `church_id`, `notification_title`, `notification_content`, `notification_date`, `type`, `status`, `affid`, `archived`) VALUES
+(1, 1, 'You', 'sent an Affiliate request to Truevine Church', '2012-08-01', 5, 2, 2, 0),
+(2, 2, 'Community Baptist Church', 'wants to affiliate with you', '2012-08-01', 1, 2, 1, 1),
+(3, 1, 'You', 'sent an Affiliate request to HEHE', '2012-08-07', 5, 2, 3, 0),
+(4, 3, 'Community Baptist Church', 'wants to affiliate with you', '2012-08-07', 1, 1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `other_resource`
+--
+
+CREATE TABLE IF NOT EXISTS `other_resource` (
+  `orsc_id` int(20) NOT NULL auto_increment,
+  `orsc_name` varchar(50) NOT NULL,
+  `number_of_picks` int(20) NOT NULL,
+  PRIMARY KEY  (`orsc_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `other_resource`
+--
+
+INSERT INTO `other_resource` (`orsc_id`, `orsc_name`, `number_of_picks`) VALUES
+(1, 'Sound Systems', 5),
+(2, 'Transportation', 4),
+(3, 'New Cat', 2),
+(4, 'HEHEHE', 1),
+(5, 'sadsadfasd', 1),
+(6, 'sadsadfasd', 2),
+(7, 'dgdgs', 1),
+(8, '', 0);
 
 -- --------------------------------------------------------
 
@@ -3715,41 +3897,167 @@ CREATE TABLE IF NOT EXISTS `resource_transaction` (
   `type` int(3) NOT NULL,
   `trans_date` date NOT NULL,
   `ns_id` int(20) NOT NULL,
+  `orsc_id` int(20) NOT NULL,
   PRIMARY KEY  (`trans_id`),
   KEY `resource_id` (`resource_id`,`type`),
-  KEY `ns_id` (`ns_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
+  KEY `ns_id` (`ns_id`),
+  KEY `orsc_id` (`orsc_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=150 ;
 
 --
 -- Dumping data for table `resource_transaction`
 --
 
-INSERT INTO `resource_transaction` (`trans_id`, `resource_id`, `type`, `trans_date`, `ns_id`) VALUES
-(1, 12, 1, '2012-04-30', 1),
-(2, 12, 1, '2012-04-30', 1),
-(3, 13, 1, '2012-04-30', 1),
-(4, 14, 1, '2012-04-30', 1),
-(5, 15, 1, '2012-04-30', 1),
-(6, 4, 2, '2012-04-30', 1),
-(7, 10, 2, '2012-04-30', 1),
-(8, 11, 2, '2012-04-30', 1),
-(9, 13, 2, '2012-04-30', 1),
-(10, 30, 2, '2012-04-30', 2),
-(11, 36, 2, '2012-04-30', 2),
-(12, 36, 2, '2012-04-30', 2),
-(13, 36, 2, '2012-04-30', 2),
-(14, 49, 2, '2012-04-30', 2),
-(15, 11, 1, '2012-04-30', 2),
-(16, 4, 1, '2012-05-03', 3),
-(17, 10, 1, '2012-05-03', 3),
-(18, 4, 1, '2012-05-07', 4),
-(19, 13, 1, '2012-05-07', 4),
-(20, 4, 2, '2012-05-07', 3),
-(21, 13, 2, '2012-05-07', 3),
-(22, 4, 2, '2012-05-07', 4),
-(23, 13, 2, '2012-05-07', 4),
-(24, 4, 1, '2012-05-07', 5),
-(25, 3, 1, '2012-05-07', 5);
+INSERT INTO `resource_transaction` (`trans_id`, `resource_id`, `type`, `trans_date`, `ns_id`, `orsc_id`) VALUES
+(1, 12, 1, '2012-04-30', 1, 0),
+(2, 12, 1, '2012-04-30', 1, 0),
+(3, 13, 1, '2012-04-30', 1, 0),
+(4, 14, 1, '2012-04-30', 1, 0),
+(5, 15, 1, '2012-04-30', 1, 0),
+(6, 4, 2, '2012-04-30', 1, 0),
+(7, 10, 2, '2012-04-30', 1, 0),
+(8, 11, 2, '2012-04-30', 1, 0),
+(9, 13, 2, '2012-04-30', 1, 0),
+(10, 30, 2, '2012-04-30', 2, 0),
+(11, 36, 2, '2012-04-30', 2, 0),
+(12, 36, 2, '2012-04-30', 2, 0),
+(13, 36, 2, '2012-04-30', 2, 0),
+(14, 49, 2, '2012-04-30', 2, 0),
+(15, 11, 1, '2012-04-30', 2, 0),
+(16, 4, 1, '2012-05-03', 3, 0),
+(17, 10, 1, '2012-05-03', 3, 0),
+(18, 4, 1, '2012-05-07', 4, 0),
+(19, 13, 1, '2012-05-07', 4, 0),
+(20, 4, 2, '2012-05-07', 3, 0),
+(21, 13, 2, '2012-05-07', 3, 0),
+(22, 4, 2, '2012-05-07', 4, 0),
+(23, 13, 2, '2012-05-07', 4, 0),
+(24, 4, 1, '2012-05-07', 5, 0),
+(25, 3, 1, '2012-05-07', 5, 0),
+(26, 1, 1, '2012-05-19', 6, 0),
+(27, 0, 1, '2012-05-19', 6, 0),
+(28, 1, 1, '2012-05-19', 7, 0),
+(29, 1, 1, '2012-05-19', 8, 0),
+(30, 1, 1, '2012-05-19', 9, 0),
+(31, 0, 1, '2012-05-19', 9, 1),
+(32, 8, 1, '2012-05-19', 10, 0),
+(33, 0, 1, '2012-05-19', 11, 0),
+(34, 0, 1, '2012-05-19', 12, 3),
+(35, 0, 1, '2012-05-19', 13, 4),
+(36, 0, 1, '2012-05-19', 14, 5),
+(37, 0, 1, '2012-05-19', 15, 6),
+(38, 0, 1, '2012-05-19', 16, 6),
+(39, 0, 1, '2012-05-19', 17, 6),
+(40, 0, 1, '2012-05-19', 18, 7),
+(41, 0, 2, '2012-05-20', 5, 2),
+(42, 0, 1, '2012-05-20', 19, 1),
+(43, 0, 1, '2012-05-21', 20, 2),
+(44, 0, 1, '2012-05-23', 21, 1),
+(45, 1, 1, '2012-05-23', 22, 0),
+(46, 2, 1, '2012-05-23', 22, 0),
+(47, 3, 1, '2012-05-23', 22, 0),
+(48, 1, 2, '2012-05-23', 6, 0),
+(49, 2, 2, '2012-05-23', 6, 0),
+(50, 3, 2, '2012-05-23', 6, 0),
+(51, 1, 2, '2012-05-23', 7, 0),
+(52, 2, 2, '2012-05-23', 7, 0),
+(53, 3, 2, '2012-05-23', 7, 0),
+(54, 0, 1, '2012-05-23', 23, 1),
+(55, 7, 1, '2012-06-07', 26, 0),
+(56, 10, 1, '2012-06-07', 27, 0),
+(57, 9, 1, '2012-06-07', 28, 0),
+(58, 1, 1, '2012-06-07', 29, 0),
+(59, 2, 1, '2012-06-07', 29, 0),
+(60, 3, 1, '2012-06-07', 29, 0),
+(61, 1, 1, '2012-06-14', 30, 0),
+(62, 2, 1, '2012-06-14', 30, 0),
+(63, 3, 1, '2012-06-14', 30, 0),
+(64, 1, 1, '2012-06-20', 31, 0),
+(65, 2, 1, '2012-06-20', 31, 0),
+(66, 3, 1, '2012-06-20', 31, 0),
+(67, 1, 1, '2012-06-23', 32, 0),
+(68, 2, 1, '2012-06-23', 32, 0),
+(69, 3, 1, '2012-06-23', 32, 0),
+(70, 4, 1, '2012-06-23', 32, 0),
+(71, 1, 1, '2012-06-23', 33, 0),
+(72, 2, 1, '2012-06-23', 33, 0),
+(73, 3, 1, '2012-06-23', 33, 0),
+(74, 1, 1, '2012-06-23', 34, 0),
+(75, 2, 1, '2012-06-23', 34, 0),
+(76, 3, 1, '2012-06-23', 34, 0),
+(77, 1, 1, '2012-06-24', 35, 0),
+(78, 2, 1, '2012-06-24', 35, 0),
+(79, 3, 1, '2012-06-24', 35, 0),
+(80, 1, 1, '2012-06-25', 36, 0),
+(81, 2, 1, '2012-06-25', 36, 0),
+(82, 3, 1, '2012-06-25', 36, 0),
+(83, 1, 1, '2012-06-26', 37, 0),
+(84, 2, 1, '2012-06-26', 37, 0),
+(85, 3, 1, '2012-06-26', 37, 0),
+(86, 1, 1, '2012-06-26', 8, 0),
+(87, 2, 1, '2012-06-26', 8, 0),
+(88, 3, 1, '2012-06-26', 8, 0),
+(89, 1, 2, '2012-06-26', 9, 0),
+(90, 2, 2, '2012-06-26', 9, 0),
+(91, 3, 2, '2012-06-26', 9, 0),
+(92, 1, 1, '2012-06-27', 38, 0),
+(93, 2, 1, '2012-06-27', 38, 0),
+(94, 3, 1, '2012-06-27', 38, 0),
+(95, 2, 1, '2012-06-28', 39, 0),
+(96, 1, 1, '2012-06-28', 39, 0),
+(97, 1, 1, '2012-06-28', 40, 0),
+(98, 2, 1, '2012-06-28', 40, 0),
+(99, 3, 1, '2012-06-28', 40, 0),
+(100, 52, 1, '2012-06-28', 41, 0),
+(101, 1, 2, '2012-06-29', 10, 0),
+(102, 4, 2, '2012-06-29', 10, 0),
+(103, 36, 1, '2012-06-29', 42, 0),
+(104, 5, 1, '2012-06-30', 43, 0),
+(105, 1, 1, '2012-06-30', 44, 0),
+(106, 1, 2, '2012-06-30', 11, 0),
+(107, 2, 2, '2012-06-30', 12, 0),
+(108, 2, 1, '2012-06-30', 45, 0),
+(109, 4, 1, '2012-06-30', 46, 0),
+(110, 4, 1, '2012-06-30', 47, 0),
+(111, 1, 1, '2012-06-30', 48, 0),
+(112, 1, 1, '2012-06-30', 49, 0),
+(113, 1, 2, '2012-06-30', 13, 0),
+(114, 1, 1, '2012-07-01', 50, 0),
+(115, 2, 1, '2012-07-01', 50, 0),
+(116, 3, 1, '2012-07-01', 50, 0),
+(117, 2, 1, '2012-07-01', 51, 0),
+(118, 3, 1, '2012-07-01', 51, 0),
+(119, 1, 1, '2012-07-01', 51, 0),
+(120, 1, 1, '2012-07-01', 52, 0),
+(121, 2, 1, '2012-07-01', 52, 0),
+(122, 3, 1, '2012-07-01', 52, 0),
+(123, 1, 1, '2012-07-01', 53, 0),
+(124, 1, 2, '2012-07-01', 14, 0),
+(125, 2, 2, '2012-07-01', 14, 0),
+(126, 3, 2, '2012-07-01', 14, 0),
+(127, 1, 1, '2012-07-02', 54, 0),
+(128, 2, 1, '2012-07-02', 54, 0),
+(129, 1, 2, '2012-07-02', 15, 0),
+(130, 2, 2, '2012-07-02', 15, 0),
+(131, 1, 1, '2012-07-02', 55, 0),
+(132, 2, 1, '2012-07-02', 55, 0),
+(133, 1, 2, '2012-07-02', 16, 0),
+(134, 2, 2, '2012-07-02', 16, 0),
+(135, 3, 2, '2012-07-02', 16, 0),
+(136, 1, 2, '2012-07-02', 17, 0),
+(137, 2, 2, '2012-07-02', 17, 0),
+(138, 3, 2, '2012-07-02', 17, 0),
+(139, 1, 1, '2012-07-02', 56, 0),
+(140, 2, 1, '2012-07-02', 56, 0),
+(141, 3, 1, '2012-07-02', 56, 0),
+(142, 3, 1, '2012-07-06', 57, 0),
+(143, 4, 1, '2012-07-06', 57, 0),
+(144, 2, 1, '2012-07-14', 58, 0),
+(145, 1, 1, '2012-07-14', 58, 0),
+(146, 41, 2, '2012-07-23', 18, 0),
+(147, 40, 2, '2012-07-23', 18, 0),
+(148, 39, 2, '2012-07-23', 18, 0),
+(149, 2, 1, '2012-08-01', 59, 0);
 
 -- --------------------------------------------------------
 
@@ -3861,7 +4169,7 @@ CREATE TABLE IF NOT EXISTS `user_log` (
   `log_status` int(3) NOT NULL,
   PRIMARY KEY  (`log_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=59 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=107 ;
 
 --
 -- Dumping data for table `user_log`
@@ -3925,4 +4233,52 @@ INSERT INTO `user_log` (`log_id`, `log_date`, `user_id`, `log_status`) VALUES
 (55, '2012-05-10', 15, 2),
 (56, '2012-05-10', 15, 2),
 (57, '2012-05-17', 15, 2),
-(58, '2012-05-17', 15, 2);
+(58, '2012-05-17', 15, 2),
+(59, '2012-05-17', 15, 2),
+(60, '2012-05-18', 15, 2),
+(61, '2012-05-18', 2, 2),
+(62, '2012-05-19', 15, 2),
+(63, '2012-05-19', 15, 2),
+(64, '2012-05-20', 15, 2),
+(65, '2012-05-20', 2, 2),
+(66, '2012-05-20', 12, 2),
+(67, '2012-05-20', 2, 2),
+(68, '2012-05-20', 12, 2),
+(69, '2012-05-20', 15, 2),
+(70, '2012-05-21', 2, 2),
+(71, '2012-05-21', 16, 2),
+(72, '2012-05-21', 15, 2),
+(73, '2012-05-21', 16, 2),
+(74, '2012-05-21', 12, 2),
+(75, '2012-05-21', 16, 2),
+(76, '2012-05-23', 16, 2),
+(77, '2012-05-23', 15, 2),
+(78, '2012-05-23', 15, 2),
+(79, '2012-05-23', 16, 2),
+(80, '2012-05-23', 2, 2),
+(81, '2012-05-23', 15, 2),
+(82, '2012-05-23', 16, 2),
+(83, '2012-05-23', 16, 2),
+(84, '2012-05-23', 15, 2),
+(85, '2012-05-23', 15, 2),
+(86, '2012-05-23', 16, 2),
+(87, '2012-05-24', 15, 2),
+(88, '2012-05-29', 16, 2),
+(89, '2012-05-29', 2, 2),
+(90, '2012-05-31', 15, 2),
+(91, '2012-05-31', 16, 2),
+(92, '2012-05-31', 2, 2),
+(93, '2012-05-31', 16, 2),
+(94, '2012-06-04', 15, 2),
+(95, '2012-06-06', 2, 2),
+(96, '2012-06-07', 15, 2),
+(97, '2012-06-08', 16, 2),
+(98, '2012-06-13', 2, 2),
+(99, '2012-06-15', 15, 2),
+(100, '2012-06-16', 16, 2),
+(101, '2012-06-16', 2, 2),
+(102, '2012-06-16', 15, 2),
+(103, '2012-06-18', 2, 2),
+(104, '2012-06-23', 16, 2),
+(105, '2012-07-06', 15, 1),
+(106, '2012-07-14', 16, 1);
